@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Registration Page
+{% endblock title %}
+
+{% block content %}
+<div class='border border-neutral-600 rounded mt-5 w-75 mx-auto  ' style="background-color:#203244">
+    <h2 class='text-center p-5'>Registration Form</h2>
+    <form method='POST' class='mt-2 p-5'>
+        {% csrf_token %}
+        {{form.as_p}}
+        <button class="btn btn-primary">Login</button>
+    </form>
+    
+</div>
+
+{% endblock content %}

@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+<title>Home</title>
+{% endblock title %}
+
+{% block content %}
+<div class='border border-neutral-600 rounded mt-5 w-50 mx-auto text-center' style="background-color:#203244">
+    <h2 class='text-center p-5' >
+        {% if form.instance.pk %} 
+        Edit Tweet 
+        {% else %} 
+        Create Tweet 
+        {% endif %}
+    </h2>
+    
+    <form method='POST' enctype="multipart/form-data" class='form  p-10'>
+        {% csrf_token %}
+        {{form.as_p}}
+        <button class="btn btn-success" type="submit">Submit</button>
+        <br><br>
+        <a class='text-white' href="{% url 'tweet_list' %}">Back to Tweet List</a>
+        <br>
+        <br>
+    </form>
+    
+</div>
+{% endblock content %}
